@@ -14,7 +14,7 @@ function App() {
     }
 
     function removeNumbers() {
-        (numbers > 0) ? setNumbers(--numbers) : setNumbers(0)
+        (numbers > 0) ? setNumbers(0) : setNumbers(0)
     }
 
     return (

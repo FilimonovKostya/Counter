@@ -13,8 +13,8 @@ type PropsType={
 export function IncReset(props:PropsType) {
 
     return <div className={'incReset'}>
-        <Inc addNumbers={props.addNumbers} value={props.value} />
-        <Reset removeNumbers={props.removeNumbers} value={props.value}/>
+        <Inc addNumbers={props.addNumbers} value={props.value}  removeNumbers={props.removeNumbers} />
+        {/*<Reset removeNumbers={props.removeNumbers} value={props.value}/>*/}
     </div>
 }
 
