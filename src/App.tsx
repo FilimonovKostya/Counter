@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import {WindowCounter} from "./Components/WindowCounter";
+import {IncReset} from "./Components/IncReset/IncReset";
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    let [numbers,setNumbers] = useState(0)
+
+
+    function addNumbers() {
+        (numbers < 5) ? setNumbers(++numbers) : setNumbers(5)
+    }
+
+    function removeNumbers() {
+        (numbers > 0) ? setNumbers(--numbers) : setNumbers(0)
+    }
+
+    return (
+        <div className={'wrapper'}>
+            <WindowCounter number={numbers}/>
+            <IncReset  addNumbers={addNumbers} removeNumbers={removeNumbers} value={numbers}/>
+        </div>
+
+    );
 }
 
 export default App;
