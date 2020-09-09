@@ -12,6 +12,15 @@ body {
   background-color: #252b38;
 }
 
+.window{
+  height: 200px;
+  width: 480px;
+  border-radius: 10px;
+  margin: 10px auto;
+  background-color: #7cd3f1;
+  font-size: 72px;
+  line-height: 200px;
+}
 
 .incReset {
   height: 150px;
@@ -32,4 +41,9 @@ body {
   font-size: 40px;
   outline: none;
   cursor: pointer;
+}
+
+.error{
+  outline: none;
+  border: 3px solid red;
 }

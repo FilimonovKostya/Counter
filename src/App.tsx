@@ -1,26 +1,23 @@
 import React, {useState} from 'react';
 import './App.css';
-import {WindowCounter} from "./Components/WindowCounter";
-import {IncReset} from "./Components/IncReset/IncReset";
+import WindowCounter from './Components/WindowCounter';
+import IncReset from './Components/IncReset';
 
 
 function App() {
 
-    let [numbers,setNumbers] = useState(0)
+    let [numbers, setNumber] = useState<number>(0)
 
+    function IncNumbers() { (numbers < 5) ? setNumber(++numbers) : setNumber(5) }
 
-    function addNumbers() {
-        (numbers < 5) ? setNumbers(++numbers) : setNumbers(5)
-    }
-
-    function removeNumbers() {
-        (numbers > 0) ? setNumbers(0) : setNumbers(0)
+    function ResNumber()  {
+        setNumber(0)
     }
 
     return (
         <div className={'wrapper'}>
-            <WindowCounter number={numbers}/>
-            <IncReset  addNumbers={addNumbers} removeNumbers={removeNumbers} value={numbers}/>
+            <WindowCounter valueNumbers={numbers}/>
+            <IncReset incNumbers={IncNumbers} ResNumber={ResNumber} value={numbers}/>
         </div>
 
     );
