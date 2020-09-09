@@ -6,7 +6,7 @@ type PropsType = {
 
 function WindowCounter(props: PropsType) {
     return <div className={'window'}>
-        <span>{props.valueNumbers}</span>
+        <span className={props.valueNumbers === 5 ? 'max' : ''}>{props.valueNumbers}</span>
     </div>
 }
 
