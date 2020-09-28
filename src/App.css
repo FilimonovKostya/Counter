@@ -33,7 +33,7 @@ body {
   align-items: center;
 }
 
-.inc, .reset {
+.incRes {
   border: none;
   background-color: #35b8e5;
   border-radius: 10px;
