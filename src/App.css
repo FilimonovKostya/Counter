@@ -2,6 +2,12 @@ body {
   background-color: #252b38;
 }
 
+.app{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row-reverse;
+}
+
 .wrapper {
   width: 550px;
   border: 2px solid #35b8e5;

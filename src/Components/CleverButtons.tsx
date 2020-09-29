@@ -21,4 +21,4 @@ function CleverButtons(props:CleverButtonsPropsType) {
     </div>
 }
 
-export default CleverButtons
+export default CleverButtons 

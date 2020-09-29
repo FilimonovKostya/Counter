@@ -17,12 +17,33 @@ function App() {
     }
 
     return (
-        <div className={'wrapper'}>
-            <WindowCounter valueNumbers={numbers}/>
-            <CleverButtons numbers={numbers} incNumbers={incNumbers} resNumbers={resNumber}/>
+        <div className={'app'}>
+            <div className={'wrapper'}>
+                <WindowCounter valueNumbers={numbers}/>
+                <CleverButtons numbers={numbers} incNumbers={incNumbers} resNumbers={resNumber}/>
+            </div>
+            <Settings/>
         </div>
 
     );
+}
+
+function Settings() {
+    return <div className={'wrapper'}>
+
+        <div className={'incReset'}>
+            <span>Max value : </span>
+            <input type="number"/>
+        </div>
+
+        <div className={'incReset'}>
+            <span>Max value : </span>
+            <input type="number"/>
+        </div>
+
+            <button className={'incRes'}>SET</button>
+
+    </div>
 }
 
 export default App;
