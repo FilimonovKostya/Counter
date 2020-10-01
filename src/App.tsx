@@ -39,7 +39,7 @@ function Settings() {
             </div>
 
             <div className={'valueInput'}>
-                <span>Max value : </span>
+                <span>Min value : </span>
                 <input type="number"/>
             </div>
         </div>
