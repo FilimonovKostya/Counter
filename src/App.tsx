@@ -7,7 +7,7 @@ import {Settings} from "./Components/Settings";
 
 function App() {
 
-    let [numbers, setNumber] = useState<number>(0)
+    let [numbers, setNumber] = useState<number>(1)
 
     function incNumbers() {
         (numbers < 5) ? setNumber(++numbers) : setNumber(5)
@@ -15,6 +15,10 @@ function App() {
 
     function resNumber() {
         setNumber(0)
+    }
+
+    function getMaxValue(value: any) {
+        setNumber(value)
     }
 
     return (
@@ -25,7 +29,7 @@ function App() {
                                incNumbers={incNumbers}
                                resNumbers={resNumber}/>
             </div>
-            <Settings/>
+            <Settings getMaxValue={getMaxValue} numbers={numbers}/>
         </div>
 
     );

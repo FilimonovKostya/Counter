@@ -1,13 +1,23 @@
-import React from "react";
+import React, {ChangeEvent} from "react";
 
-export function Settings() {
+type SettingsPropsType = {
+    numbers: number
+    getMaxValue: (value: any) => void
+}
+
+export function Settings(props: SettingsPropsType) {
+
+    function changeValue(e:ChangeEvent<HTMLInputElement>) {
+        props.getMaxValue(e.currentTarget.value)
+    }
+
     return <div className={'wrapper'}>
 
         <div className={'incReset settings'}>
 
             <div className={'valueInput'}>
                 <span>Max value : </span>
-                <input type="number"/>
+                <input type="number" value={props.numbers} onChange={changeValue}/>
             </div>
 
             <div className={'valueInput'}>
