@@ -1,4 +1,4 @@
-import React, {ChangeEvent} from "react";
+import React, {ChangeEvent, useState} from "react";
 
 type SettingsPropsType = {
     numbers: number
@@ -7,8 +7,14 @@ type SettingsPropsType = {
 
 export function Settings(props: SettingsPropsType) {
 
-    function changeValue(e:ChangeEvent<HTMLInputElement>) {
-        props.getMaxValue(e.currentTarget.value)
+    let [inputValue, setInputValue] = useState('0')
+
+    function changeValue(e: ChangeEvent<HTMLInputElement>) {
+        setInputValue(e.currentTarget.value)
+    }
+
+    function set() {
+        props.getMaxValue(inputValue)
     }
 
     return <div className={'wrapper'}>
@@ -16,18 +22,18 @@ export function Settings(props: SettingsPropsType) {
         <div className={'incReset settings'}>
 
             <div className={'valueInput'}>
-                <span>Max value : </span>
-                <input type="number" value={props.numbers} onChange={changeValue}/>
+                <span>Start value : </span>
+                <input type="number" value={inputValue} onChange={changeValue}/>
             </div>
 
             <div className={'valueInput'}>
-                <span>Min value : </span>
+                <span>Max value : </span>
                 <input type="number"/>
             </div>
         </div>
 
         <div className={'incReset'}>
-            <button className={'incRes'}>Set</button>
+            <button className={'incRes'} onClick={set}>Set</button>
         </div>
     </div>
 }
