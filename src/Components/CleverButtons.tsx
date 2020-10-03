@@ -1,7 +1,8 @@
 import React from "react";
 
 type CleverButtonsPropsType = {
-    numbers: number
+    startValue: number
+    maxValue:number
     incNumbers: () => void
     resNumbers: () => void
 }
@@ -10,13 +11,13 @@ function CleverButtons(props:CleverButtonsPropsType) {
     return <div className={'incReset'}>
 
         <button onClick={props.incNumbers}
-                className={props.numbers < 5 ? 'incRes' : 'incRes error'}
-                disabled={props.numbers > 4}
+                className={'incRes'}
+                // disabled={props.startValue < props.maxValue }
         >Inc</button>
 
         <button onClick={props.resNumbers}
-                className={props.numbers > 0 ? 'incRes' : 'incRes error'}
-                disabled={props.numbers === 0}
+                className={'incRes'}
+                // disabled={props.startValue === props.maxValue }
         >Reset</button>
     </div>
 }

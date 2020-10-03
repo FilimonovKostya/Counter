@@ -1,21 +1,30 @@
 import React, {ChangeEvent, useState} from "react";
 
 type SettingsPropsType = {
-    numbers: number
+    getStartValue: (value: number) => void
     getMaxValue: (value: number) => void
 }
 
 export function Settings(props: SettingsPropsType) {
 
-    let [inputValue, setInputValue] = useState<number>(0)
+    let [inputStartValue, setInputStartValue] = useState<number>(0)
 
-    function changeValue(e: ChangeEvent<HTMLInputElement>) {
-        setInputValue(+e.currentTarget.value)
+    function changeStartInputValue(e: ChangeEvent<HTMLInputElement>) {
+        setInputStartValue(+e.currentTarget.value)
+    }
+
+
+    let [inputMaxValue, setInputMaxValue] = useState<number>(0)
+
+    function changeMaxInputValue(e: ChangeEvent<HTMLInputElement>) {
+        setInputMaxValue(+e.currentTarget.value)
     }
 
     function set() {
-        props.getMaxValue(inputValue)
+        props.getStartValue(inputStartValue)
+        props.getMaxValue(inputMaxValue)
     }
+
 
     return <div className={'wrapper'}>
 
@@ -23,12 +32,12 @@ export function Settings(props: SettingsPropsType) {
 
             <div className={'valueInput'}>
                 <span>Start value : </span>
-                <input type="number" value={inputValue} onChange={changeValue}/>
+                <input type="number" value={inputStartValue} onChange={changeStartInputValue}/>
             </div>
 
             <div className={'valueInput'}>
                 <span>Max value : </span>
-                <input type="number"/>
+                <input type="number" value={inputMaxValue} onChange={changeMaxInputValue}/>
             </div>
         </div>
 

@@ -6,30 +6,51 @@ import {Settings} from "./Components/Settings";
 
 
 function App() {
+    debugger
 
-    let [numbers, setNumber] = useState<number>(1)
+    const [startValue, setStartValue] = useState<number>(2)
+
+    let [maxValue, setMaxValue] = useState<number>(5)
 
     function incNumbers() {
-        (numbers < 5) ? setNumber(++numbers) : setNumber(5)
+        if (startValue < maxValue) {
+            setStartValue( startValue + 1)
+        } else if (startValue === maxValue) {
+            alert('StarValue === MaxValue')
+        } else {
+            alert('Одно положительно а другое отрицательное или все отрицательные')
+        }
     }
 
     function resNumber() {
-        setNumber(0)
+        debugger
+        if (startValue < maxValue) {
+         setStartValue( startValue  )
+
+        } else {
+            alert('error')
+        }
+    }
+
+    function getStartValue(value: number) {
+        setStartValue(value)
     }
 
     function getMaxValue(value: number) {
-        setNumber(value)
+        setMaxValue(value)
     }
 
     return (
         <div className={'app'}>
             <div className={'wrapper'}>
-                <WindowCounter valueNumbers={numbers}/>
-                <CleverButtons numbers={numbers}
+                <WindowCounter startValue={startValue} maxValue={maxValue} />
+
+                <CleverButtons startValue={startValue}
+                               maxValue={maxValue}
                                incNumbers={incNumbers}
                                resNumbers={resNumber}/>
             </div>
-            <Settings getMaxValue={getMaxValue} numbers={numbers}/>
+            <Settings getStartValue={getStartValue} getMaxValue={getMaxValue}/>
         </div>
 
     );
