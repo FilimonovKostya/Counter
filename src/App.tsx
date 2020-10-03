@@ -17,7 +17,7 @@ function App() {
         setNumber(0)
     }
 
-    function getMaxValue(value: any) {
+    function getMaxValue(value: number) {
         setNumber(value)
     }
 

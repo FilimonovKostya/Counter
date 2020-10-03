@@ -2,15 +2,15 @@ import React, {ChangeEvent, useState} from "react";
 
 type SettingsPropsType = {
     numbers: number
-    getMaxValue: (value: any) => void
+    getMaxValue: (value: number) => void
 }
 
 export function Settings(props: SettingsPropsType) {
 
-    let [inputValue, setInputValue] = useState('0')
+    let [inputValue, setInputValue] = useState<number>(0)
 
     function changeValue(e: ChangeEvent<HTMLInputElement>) {
-        setInputValue(e.currentTarget.value)
+        setInputValue(+e.currentTarget.value)
     }
 
     function set() {
