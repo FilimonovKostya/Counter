@@ -6,15 +6,20 @@ import {Settings} from "./Components/Settings";
 
 
 function App() {
-    debugger
 
-    const [startValue, setStartValue] = useState<number>(2)
+    let [startValue, setStartValue] = useState<number>(0)
 
-    let [maxValue, setMaxValue] = useState<number>(5)
+    let [prevStartValue, setPrevStartValue] = useState<Array<number>>([])
+    console.log(prevStartValue)
+    const oldValue = startValue
+
+    let [maxValue, setMaxValue] = useState<number>(0)
 
     function incNumbers() {
+
         if (startValue < maxValue) {
-            setStartValue( startValue + 1)
+            setStartValue(startValue + 1)
+            prevStartValue.push(startValue)
         } else if (startValue === maxValue) {
             alert('StarValue === MaxValue')
         } else {
@@ -23,12 +28,11 @@ function App() {
     }
 
     function resNumber() {
-        debugger
-        if (startValue < maxValue) {
-         setStartValue( startValue  )
 
+        if (startValue < maxValue) {
+         setStartValue(prevStartValue[0])
         } else {
-            alert('error')
+            setStartValue( startValue  )
         }
     }
 
@@ -50,7 +54,7 @@ function App() {
                                incNumbers={incNumbers}
                                resNumbers={resNumber}/>
             </div>
-            <Settings getStartValue={getStartValue} getMaxValue={getMaxValue}/>
+            <Settings getStartValue={getStartValue} getMaxValue={getMaxValue} setPrevStartValue={setPrevStartValue}/>
         </div>
 
     );

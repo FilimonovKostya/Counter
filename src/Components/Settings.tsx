@@ -3,6 +3,7 @@ import React, {ChangeEvent, useState} from "react";
 type SettingsPropsType = {
     getStartValue: (value: number) => void
     getMaxValue: (value: number) => void
+    setPrevStartValue:any
 }
 
 export function Settings(props: SettingsPropsType) {
@@ -10,8 +11,9 @@ export function Settings(props: SettingsPropsType) {
     let [inputStartValue, setInputStartValue] = useState<number>(0)
 
     function changeStartInputValue(e: ChangeEvent<HTMLInputElement>) {
-        setInputStartValue(+e.currentTarget.value)
+      return  setInputStartValue(+e.currentTarget.value)
     }
+
 
 
     let [inputMaxValue, setInputMaxValue] = useState<number>(0)
@@ -23,6 +25,7 @@ export function Settings(props: SettingsPropsType) {
     function set() {
         props.getStartValue(inputStartValue)
         props.getMaxValue(inputMaxValue)
+        props.setPrevStartValue([])
     }
 
 

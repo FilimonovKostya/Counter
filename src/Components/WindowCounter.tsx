@@ -1,7 +1,6 @@
 import React from "react";
 
 type PropsType = {
-
     startValue: number
     maxValue:number
 }
