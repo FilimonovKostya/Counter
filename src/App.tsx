@@ -5,23 +5,32 @@ import WindowCounter from "./Components/WindowCounter/WindowCounter";
 
 function App() {
 
-    const [getInputStartValue,setInputStartValue] = useState(0)
-    const [getInputMaxValue,setInputMaxValue] = useState(0)
+    const [startValue,setStartValue] = useState(0)
+    const [maxValue,setMaxValue] = useState(0)
 
-    function getStartValue(value: number){
-        setInputStartValue(value)
+    function getStartValue(value:number){
+        setStartValue(value)
     }
 
     function getMaxValue(value:number){
-        setInputMaxValue(value)
+        setMaxValue(value)
     }
 
-    console.log(getInputMaxValue)
+    function incNumbers(){
+        if(startValue < maxValue) {
+            setStartValue( startValue + 1)
+        }
+    }
+
+    function resNumbers(){
+        if(startValue < maxValue) {
+            setMaxValue( startValue)
+        }
+    }
+
     return <div className={'app'}>
-
-        <Settings getStartValue={getStartValue} getMaxValue={getMaxValue}/>
-      <WindowCounter/>
-
+        <Settings getMaxValue={getMaxValue} getStartValue={getStartValue} startValue={startValue} maxValue={maxValue}/>
+        <WindowCounter incNumbers={incNumbers} resNumbers={resNumbers} startValue={startValue}/>
     </div>
 }
 

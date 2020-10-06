@@ -2,20 +2,20 @@ import React, {ChangeEvent} from "react";
 
 type InputPropsType = {
     inputName: string
-    inputValue:number
-    setInput:(value: number) => void
+    getAllValue:(value:number) => void
+    values:number
 }
 
 
 export function Inputs(props: InputPropsType) {
 
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        props.setInput(+e.currentTarget.value)
+        props.getAllValue(+e.currentTarget.value)
     }
 
     return <div className={'valueInput'}>
         <span> {props.inputName} </span>
-        <input type="number" value={props.inputValue}  onChange={onChangeHandler}/>
+        <input type="number" value={props.values} onChange={onChangeHandler}/>
     </div>
 
 }
