@@ -7,7 +7,7 @@ function WindowCounter() {
         <Window/>
 
         <div className={'incReset'}>
-            <CleverButtons title={'Inc'}/>
+            <CleverButtons title={'Inc'} />
             <CleverButtons title={'Reset'}/>
         </div>
 
