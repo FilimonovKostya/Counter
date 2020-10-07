@@ -5,32 +5,46 @@ import WindowCounter from "./Components/WindowCounter/WindowCounter";
 
 function App() {
 
-    const [startValue,setStartValue] = useState(0)
-    const [maxValue,setMaxValue] = useState(0)
+    const [startValue, setStartValue] = useState(0) // значение инпута
+    const [maxValue, setMaxValue] = useState(0) // значение инпута
 
-    function getStartValue(value:number){
-        setStartValue(value)
-    }
+    const [count, setCount] = useState(startValue) // сохранить как-то стартовое значение инпута
 
-    function getMaxValue(value:number){
-        setMaxValue(value)
-    }
+    console.log('Стартовое значение инпута - ' + count)
+    console.log('Увеличивающиеся стартовое значение инпуа - ' + startValue)
+    console.log('Увеличивающиеся максимальное значение инпута - ' + maxValue)
 
-    function incNumbers(){
-        if(startValue < maxValue) {
-            setStartValue( startValue + 1)
+    function incNumber() {
+        if (startValue < maxValue) {
+            setStartValue(startValue + 1)
+        } else {
+            alert('Стартовое значение больше или равно')
         }
     }
 
-    function resNumbers(){
-        if(startValue < maxValue) {
-            setMaxValue( startValue)
+    function resNumber() {
+        if (startValue < maxValue) {
+            setStartValue(count)
+        } else {
+            setStartValue(count)
         }
+    }
+
+    function set(){
+        setStartValue(startValue)
+        setMaxValue(maxValue)
+        setCount(startValue)
     }
 
     return <div className={'app'}>
-        <Settings getMaxValue={getMaxValue} getStartValue={getStartValue} startValue={startValue} maxValue={maxValue}/>
-        <WindowCounter incNumbers={incNumbers} resNumbers={resNumbers} startValue={startValue}/>
+        <Settings setStartValue={setStartValue}
+                  setMaxValue={setMaxValue}
+                  set={set}
+
+                  startValue={startValue}
+                  maxValue={maxValue}/>
+
+        <WindowCounter incNumber={incNumber} resNumber={resNumber} startValue={startValue}/>
     </div>
 }
 

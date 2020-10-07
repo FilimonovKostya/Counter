@@ -2,20 +2,20 @@ import React, {ChangeEvent} from "react";
 
 type InputPropsType = {
     inputName: string
-    getAllValue:(value:number) => void
-    values:number
+    startAndMaxValue:(value: number) => void
+    maxAndStart:number
 }
 
 
 export function Inputs(props: InputPropsType) {
 
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        props.getAllValue(+e.currentTarget.value)
+            props.startAndMaxValue(+e.currentTarget.value)
     }
 
     return <div className={'valueInput'}>
         <span> {props.inputName} </span>
-        <input type="number" value={props.values} onChange={onChangeHandler}/>
+        <input type="number" value={props.maxAndStart} onChange={onChangeHandler}/>
     </div>
 
 }

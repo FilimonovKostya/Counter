@@ -1,12 +1,15 @@
 import React from "react";
 import {Inputs} from "./Inputs";
 import CleverButtons from "./CleverButtons";
+import Set from "./Set";
 
 type SettingsPropsType = {
-    getMaxValue: (value: number) => void
-    getStartValue: (value: number) => void
-    startValue:number
+    setMaxValue:(value: number) => void
+    setStartValue:(value:number) => void
+    set?:() =>void
     maxValue:number
+    startValue:number
+
 }
 
 export function Settings(props: SettingsPropsType) {
@@ -14,12 +17,12 @@ export function Settings(props: SettingsPropsType) {
     return <div className={'wrapper'}>
         <div className={'incReset settings'}>
 
-            <Inputs inputName={'Start value'} getAllValue={props.getStartValue} values={props.startValue}/>
-            <Inputs inputName={'Max value'} getAllValue={props.getMaxValue} values={props.maxValue}/>
+            <Inputs inputName={'Start value'}  startAndMaxValue={props.setStartValue} maxAndStart={props.startValue}/>
+            <Inputs inputName={'Max value'} startAndMaxValue={props.setMaxValue} maxAndStart={props.maxValue}/>
 
         </div>
         <div className={'incReset'}>
-            <CleverButtons title={'Set'}/>
+            <Set set={props.set} title={'Set'} />
         </div>
     </div>
 }

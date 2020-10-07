@@ -3,17 +3,17 @@ import Window from "./Window";
 import CleverButtons from "../Block-Settings/CleverButtons";
 
 type WindowCounterPropsType = {
-    incNumbers:() => void
-    resNumbers:() => void
+    resNumber:()=>void
+    incNumber:()=>void
     startValue:number
 }
 function WindowCounter(props: WindowCounterPropsType) {
     return <div className={'wrapper'}>
-        <Window startValue={props.startValue} />
+        <Window  startValue={props.startValue}/>
 
         <div className={'incReset'}>
-            <CleverButtons title={'Inc'} incOrReset={props.incNumbers}/>
-            <CleverButtons title={'Reset'} incOrReset={props.resNumbers}/>
+            <CleverButtons title={'Inc'}  incAndRes={props.incNumber}/>
+            <CleverButtons title={'Reset'}  incAndRes={props.resNumber}/>
         </div>
 
     </div>

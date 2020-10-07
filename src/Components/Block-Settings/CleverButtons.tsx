@@ -2,11 +2,12 @@ import React from 'react';
 
 type CleverButtonsPropsType = {
     title: string
-    incOrReset?:() => void
+    incAndRes?:() => void
+    set?:()=>void
 }
 
 function CleverButtons(props: CleverButtonsPropsType) {
-    return <button className={'incRes'} onClick={ props.incOrReset}> {props.title} </button>
+    return <button className={'incRes'} onClick={props.incAndRes}> {props.title} </button>
 
 }
 
