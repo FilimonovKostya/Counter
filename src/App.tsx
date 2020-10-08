@@ -17,8 +17,9 @@ function App() {
     function incNumber() {
         if (startValue < maxValue) {
             setStartValue(startValue + 1)
-        } else {
-            alert('Стартовое значение больше или равно')
+        }
+        else if (startValue > maxValue){
+            alert('Стартовое значение не может быть больше максимального')
         }
     }
 
@@ -44,7 +45,7 @@ function App() {
                   startValue={startValue}
                   maxValue={maxValue}/>
 
-        <WindowCounter incNumber={incNumber} resNumber={resNumber} startValue={startValue}/>
+        <WindowCounter incNumber={incNumber} resNumber={resNumber} startValue={startValue} maxValue={maxValue}/>
     </div>
 }
 

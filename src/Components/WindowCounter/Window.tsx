@@ -2,10 +2,11 @@ import React from "react";
 
 type WindowPropsType ={
     startValue:number
+    maxValue:number
 }
 function Window(props:WindowPropsType){
     return <div className={'window'}>
-        <span> {props.startValue} </span>
+        <span className={props.startValue === props.maxValue ? 'max' : ''}> {props.startValue} </span>
     </div>
 }
 
