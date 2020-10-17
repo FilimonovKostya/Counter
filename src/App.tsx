@@ -8,18 +8,15 @@ function App() {
     const [startValue, setStartValue] = useState(0) // значение инпута
     const [maxValue, setMaxValue] = useState(0) // значение инпута
 
-    const [count, setCount] = useState(startValue) // сохранить как-то стартовое значение инпута
+    const [count, setCount] = useState(startValue) // сохраняю стартовое значение инпута при нажатии set
 
-    console.log('Стартовое значение инпута :' + startValue )
-    console.log('Максимальное значение инпута :' + maxValue )
-    console.log('Сохраненное значение инпута :' + count )
+    console.log('Стартовое значение инпута :' + startValue)
+    console.log('Максимальное значение инпута :' + maxValue)
+    console.log('Сохраненное значение инпута :' + count)
 
-    const incNumber = () =>{
+    const incNumber = () => startValue < maxValue ? (setStartValue(startValue + 1)) : alert('Cтартовое значение меньше максимального или равны')
 
-       return  startValue < maxValue ? (setStartValue(startValue + 1)) : alert('Cтартовое значение меньше максимального или равны')
-    }
-    const resNumber = () =>  startValue < maxValue ? (setStartValue(count)) : alert('Cтартовое значение меньше максимального' +
-        ' или равны')
+    const resNumber = () => startValue < maxValue ? (setStartValue(count)) : alert('Cтартовое значение меньше максимального или равны')
     const settings = () => setCount(startValue)
 
     return <div className={'app'}>
