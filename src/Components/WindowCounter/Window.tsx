@@ -1,11 +1,11 @@
 import React from "react";
 
 type WindowPropsType ={
-
+    startValue:number
 }
 function Window(props:WindowPropsType){
     return <div className={'window'}>
-        <span > 1 </span>
+        <span > {props.startValue} </span>
     </div>
 }
 

@@ -4,7 +4,10 @@ import CleverButtons from "../WindowCounter/CleverButtons";
 
 
 type SettingsPropsType = {
-
+    setStartValue: (startValue: number) => void
+    setMaxValue: (maxValue: number) => void
+    startValue: number
+    maxValue: number
 }
 
 export function Settings(props: SettingsPropsType) {
@@ -12,13 +15,13 @@ export function Settings(props: SettingsPropsType) {
     return <div className={'wrapper'}>
         <div className={'incReset settings'}>
 
-            <Inputs />
-            <Inputs />
+            <Inputs title={'Start Value'} valueInput={props.setStartValue} value={props.startValue}/>
+            <Inputs title={'Max Value'} valueInput={props.setMaxValue} value={props.maxValue}/>
 
         </div>
 
         <div className={'incReset'}>
-           <CleverButtons />
+            <CleverButtons/>
         </div>
     </div>
 }

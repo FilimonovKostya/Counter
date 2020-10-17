@@ -10,9 +10,12 @@ function App() {
 
     const [count, setCount] = useState(startValue) // сохранить как-то стартовое значение инпута
 
+    console.log('Стартовое значение инпута :' + startValue )
+    console.log('Максимальное значение инпута :' + maxValue )
+
     return <div className={'app'}>
-        <Settings />
-        <WindowCounter />
+        <Settings setStartValue={setStartValue} setMaxValue={setMaxValue} startValue={startValue} maxValue={maxValue}/>
+        <WindowCounter startValue={startValue}/>
     </div>
 }
 

@@ -4,12 +4,12 @@ import CleverButtons from './CleverButtons';
 
 
 type WindowCounterPropsType = {
-
+    startValue:number
 }
 
 function WindowCounter(props: WindowCounterPropsType) {
     return <div className={'wrapper'} >
-        <Window />
+        <Window startValue={props.startValue}/>
 
         <div className={'incReset'}>
             <CleverButtons />
