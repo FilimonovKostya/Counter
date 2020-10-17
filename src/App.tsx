@@ -13,9 +13,22 @@ function App() {
     console.log('Стартовое значение инпута :' + startValue )
     console.log('Максимальное значение инпута :' + maxValue )
 
+    const incNumber = () =>{
+        debugger
+       return  startValue < maxValue ? (setStartValue(startValue + 1)) : alert('Cтартовое значение меньше максимального или равны')
+    }
+    const resNumber = () =>  startValue < maxValue ? (setStartValue(startValue - 1)) : alert('Cтартовое значение меньше максимального' +
+        ' или равны')
+    const settings = () => alert('заглушка')
+
     return <div className={'app'}>
-        <Settings setStartValue={setStartValue} setMaxValue={setMaxValue} startValue={startValue} maxValue={maxValue}/>
-        <WindowCounter startValue={startValue}/>
+        <Settings setStartValue={setStartValue}
+                  setMaxValue={setMaxValue}
+                  startValue={startValue}
+                  maxValue={maxValue}
+                  settings={settings}
+        />
+        <WindowCounter startValue={startValue} incNumber={incNumber} resNumber={resNumber}/>
     </div>
 }
 

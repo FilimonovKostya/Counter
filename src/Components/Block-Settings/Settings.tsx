@@ -8,6 +8,7 @@ type SettingsPropsType = {
     setMaxValue: (maxValue: number) => void
     startValue: number
     maxValue: number
+    settings:() => void
 }
 
 export function Settings(props: SettingsPropsType) {
@@ -21,7 +22,7 @@ export function Settings(props: SettingsPropsType) {
         </div>
 
         <div className={'incReset'}>
-            <CleverButtons/>
+            <CleverButtons title={'Set'} incAndRes={props.settings}/>
         </div>
     </div>
 }
