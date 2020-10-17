@@ -12,14 +12,15 @@ function App() {
 
     console.log('Стартовое значение инпута :' + startValue )
     console.log('Максимальное значение инпута :' + maxValue )
+    console.log('Сохраненное значение инпута :' + count )
 
     const incNumber = () =>{
-        debugger
+
        return  startValue < maxValue ? (setStartValue(startValue + 1)) : alert('Cтартовое значение меньше максимального или равны')
     }
-    const resNumber = () =>  startValue < maxValue ? (setStartValue(startValue - 1)) : alert('Cтартовое значение меньше максимального' +
+    const resNumber = () =>  startValue < maxValue ? (setStartValue(count)) : alert('Cтартовое значение меньше максимального' +
         ' или равны')
-    const settings = () => alert('заглушка')
+    const settings = () => setCount(startValue)
 
     return <div className={'app'}>
         <Settings setStartValue={setStartValue}
