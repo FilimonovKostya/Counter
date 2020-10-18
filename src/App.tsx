@@ -10,9 +10,6 @@ function App() {
 
     const [count, setCount] = useState(startValue) // сохраняю стартовое значение инпута при нажатии set
 
-    console.log('Стартовое значение инпута :' + startValue)
-    console.log('Максимальное значение инпута :' + maxValue)
-    console.log('Сохраненное значение инпута :' + count)
 
     const incNumber = () => startValue < maxValue ? (setStartValue(startValue + 1)) : alert('Cтартовое значение меньше максимального или равны')
  

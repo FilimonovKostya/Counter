@@ -8,18 +8,18 @@ type SettingsPropsType = {
     setMaxValue: (maxValue: number) => void
     startValue: number
     maxValue: number
-    settings:() => void
+    settings: () => void
 }
 
 export function Settings(props: SettingsPropsType) {
-    const [error, setError] = useState(true)
 
     return <div className={'wrapper'}>
         <div className={'incReset settings'}>
 
-
-            <Inputs title={'Start Value'} valueInput={props.setStartValue} value={props.startValue} />
-            <Inputs title={'Max Value'} valueInput={props.setMaxValue} value={props.maxValue} />
+            <Inputs title={'Start Value'} valueInput={props.setStartValue} value={props.startValue}
+                    checkValue={props.startValue >= props.maxValue || props.startValue < 0 || props.maxValue < 0}/>
+            <Inputs title={'Max Value'} valueInput={props.setMaxValue} value={props.maxValue}
+                    checkValue={props.startValue >= props.maxValue || props.startValue < 0 || props.maxValue < 0}/>
 
         </div>
 

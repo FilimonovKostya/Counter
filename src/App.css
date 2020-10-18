@@ -71,7 +71,7 @@ input[type='number']{
   cursor: pointer;
 }
 
-.error{
+input.error{
   outline: none;
   border: 3px solid red;
 }
