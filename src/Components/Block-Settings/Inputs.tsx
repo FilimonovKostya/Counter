@@ -1,4 +1,6 @@
 import React, {ChangeEvent} from "react";
+import {Simulate} from "react-dom/test-utils";
+
 
 type InputPropsType = {
     title: string
@@ -17,7 +19,7 @@ export function Inputs(props: InputPropsType) {
 
     return <div className={'valueInput'}>
         <span> {props.title} </span>
-        <input type="number" value={props.value} onChange={onChangeHandler}/>
+        <input type="number" value={props.value}  onChange={onChangeHandler}/>
     </div>
 
 }

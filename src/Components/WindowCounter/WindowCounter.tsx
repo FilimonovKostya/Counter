@@ -4,14 +4,17 @@ import CleverButtons from './CleverButtons';
 
 
 type WindowCounterPropsType = {
-    startValue:number
+    startValue: number
+    maxValue:number
     incNumber: () => void
     resNumber: () => void
 }
 
 function WindowCounter(props: WindowCounterPropsType) {
-    return <div className={'wrapper'} >
-        <Window startValue={props.startValue}/>
+
+
+    return <div className={'wrapper'}>
+        <Window startValue={props.startValue} maxValue={props.maxValue}/>
 
         <div className={'incReset'}>
             <CleverButtons title={'Inc'} incAndRes={props.incNumber}/>

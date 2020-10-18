@@ -5,8 +5,8 @@ import WindowCounter from "./Components/WindowCounter/WindowCounter";
 
 function App() {
 
-    const [startValue, setStartValue] = useState(0) // значение инпута
-    const [maxValue, setMaxValue] = useState(0) // значение инпута
+    const [startValue, setStartValue] = useState(1) // значение инпута
+    const [maxValue, setMaxValue] = useState(3) // значение инпута
 
     const [count, setCount] = useState(startValue) // сохраняю стартовое значение инпута при нажатии set
 
@@ -15,7 +15,7 @@ function App() {
     console.log('Сохраненное значение инпута :' + count)
 
     const incNumber = () => startValue < maxValue ? (setStartValue(startValue + 1)) : alert('Cтартовое значение меньше максимального или равны')
-
+ 
     const resNumber = () => startValue < maxValue ? (setStartValue(count)) : alert('Cтартовое значение меньше максимального или равны')
     const settings = () => setCount(startValue)
 
@@ -26,7 +26,7 @@ function App() {
                   maxValue={maxValue}
                   settings={settings}
         />
-        <WindowCounter startValue={startValue} incNumber={incNumber} resNumber={resNumber}/>
+        <WindowCounter startValue={startValue} maxValue={maxValue} incNumber={incNumber} resNumber={resNumber}/>
     </div>
 }
 

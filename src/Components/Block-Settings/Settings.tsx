@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {Inputs} from "./Inputs";
 import CleverButtons from "../WindowCounter/CleverButtons";
 
@@ -12,12 +12,14 @@ type SettingsPropsType = {
 }
 
 export function Settings(props: SettingsPropsType) {
+    const [error, setError] = useState(true)
 
     return <div className={'wrapper'}>
         <div className={'incReset settings'}>
 
-            <Inputs title={'Start Value'} valueInput={props.setStartValue} value={props.startValue}/>
-            <Inputs title={'Max Value'} valueInput={props.setMaxValue} value={props.maxValue}/>
+
+            <Inputs title={'Start Value'} valueInput={props.setStartValue} value={props.startValue} />
+            <Inputs title={'Max Value'} valueInput={props.setMaxValue} value={props.maxValue} />
 
         </div>
 
