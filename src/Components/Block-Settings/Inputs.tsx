@@ -12,7 +12,8 @@ type InputPropsType = {
 export function Inputs(props: InputPropsType) {
 
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        props.valueInput(+e.currentTarget.value)
+        let valueInput = +e.currentTarget.value
+        props.valueInput(valueInput)
     }
 
     return <div className={'valueInput'}>

@@ -7,7 +7,7 @@ type CleverButtonsPropsType = {
 
 function CleverButtons(props: CleverButtonsPropsType) {
 
-    return <button className={'incRes'} onClick={props.incAndRes}> {props.title} </button>
+    return <button className={'incRes'}  onClick={props.incAndRes}> {props.title} </button>
 
 }
 

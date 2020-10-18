@@ -11,10 +11,16 @@ function App() {
     const [count, setCount] = useState(startValue) // сохраняю стартовое значение инпута при нажатии set
 
 
-    const incNumber = () => startValue < maxValue ? (setStartValue(startValue + 1)) : alert('Cтартовое значение меньше максимального или равны')
- 
-    const resNumber = () => startValue < maxValue ? (setStartValue(count)) : alert('Cтартовое значение меньше максимального или равны')
-    const settings = () => setCount(startValue)
+
+    const incNumber = () => count < maxValue ? (setCount(count + 1)) : alert('Cтартовое значение меньше максимального или равны')
+
+    // const resNumber = () => count < maxValue ? (setStartValue(count)) : alert('Cтартовое значение меньше максимального или равны')
+    const resNumber = () => setCount(startValue)
+
+    const settings = () => {
+        setCount(startValue)
+
+    }
 
     return <div className={'app'}>
         <Settings setStartValue={setStartValue}
@@ -23,7 +29,7 @@ function App() {
                   maxValue={maxValue}
                   settings={settings}
         />
-        <WindowCounter startValue={startValue} maxValue={maxValue} incNumber={incNumber} resNumber={resNumber}/>
+        <WindowCounter count={count} startValue={ startValue} maxValue={maxValue} incNumber={incNumber} resNumber={resNumber}/>
     </div>
 }
 
