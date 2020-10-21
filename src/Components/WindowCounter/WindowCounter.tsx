@@ -18,8 +18,8 @@ function WindowCounter(props: WindowCounterPropsType) {
         <Window startValue={props.startValue} count={props.count} maxValue={props.maxValue}/>
 
         <div className={'incReset'}>
-            <CleverButtons title={'Inc'} incAndRes={props.incNumber}/>
-            <CleverButtons title={'Reset'} incAndRes={props.resNumber}/>
+            <CleverButtons title={'Inc'} incAndRes={props.incNumber} startValue={props.count} maxValue={props.maxValue}/>
+            <CleverButtons title={'Reset'} incAndRes={props.resNumber} startValue={props.count} maxValue={props.maxValue}/>
         </div>
 
     </div>
