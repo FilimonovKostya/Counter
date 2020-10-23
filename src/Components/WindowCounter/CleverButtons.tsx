@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../App.css'
 
 type CleverButtonsPropsType = {
     incAndRes:() => void
@@ -10,7 +11,7 @@ type CleverButtonsPropsType = {
 
 function CleverButtons(props: CleverButtonsPropsType) {
 
-    return <button className={'incRes'} disabled={props.disabled} onClick={props.incAndRes}> {props.title} </button>
+    return <button className={props.disabled ? 'incRes error' : 'incRes'} disabled={props.disabled} onClick={props.incAndRes}> {props.title} </button>
 
 }
 

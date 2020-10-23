@@ -13,7 +13,7 @@ type SettingsPropsType = {
 
 export function Settings(props: SettingsPropsType) {
 
-    const checkInputsValue = props.startValue >= props.maxValue || props.startValue < 0 || props.maxValue < 0 // проверка условия чтобы
+    const checkInputsValue = props.startValue >= props.maxValue || props.startValue < 0 || props.maxValue < 0  // проверка условия чтобы
 
     return <div className={'wrapper'}>
         <div className={'incReset settings'}>

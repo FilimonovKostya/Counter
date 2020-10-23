@@ -2,7 +2,7 @@ body {
   background-color: #252b38;
 }
 
-.app{
+.app {
   display: flex;
   justify-content: space-around;
 
@@ -20,7 +20,7 @@ body {
   flex-direction: column;
 }
 
-.window{
+.window {
   height: 200px;
   width: 480px;
   border-radius: 10px;
@@ -42,8 +42,9 @@ body {
 }
 
 .incRes {
+  position: relative;
   border: none;
-  background-color: #35b8e5;
+  background-color: #31c2f3;
   border-radius: 10px;
   padding: 15px 30px;
   font-size: 40px;
@@ -51,11 +52,18 @@ body {
   cursor: pointer;
 }
 
-.settings{
+
+.incRes:active {
+  top: 2px;
+  left: 2px;
+  opacity: .8;
+}
+
+.settings {
   flex-direction: column;
 }
 
-.valueInput{
+.valueInput {
   display: flex;
   justify-content: space-around;
   width: 100%;
@@ -63,7 +71,7 @@ body {
   font-size: 30px;
 }
 
-input[type='number']{
+input{
   text-align: center;
   border: 3px solid #35b8e5;
   border-radius: 10px;
@@ -71,11 +79,11 @@ input[type='number']{
   cursor: pointer;
 }
 
-input.error{
+.error {
   outline: none;
   border: 3px solid red;
 }
 
-.max{
+.max {
   color: red;
 }
