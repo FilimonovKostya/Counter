@@ -37,6 +37,7 @@ export function Settings(props: SettingsPropsType) {
                            incAndRes={props.settings}
                            maxValue={props.maxValue}
                            startValue={props.startValue}
+                           disabled={props.startValue >= props.maxValue || props.startValue < 0}
 
             />
         </div>

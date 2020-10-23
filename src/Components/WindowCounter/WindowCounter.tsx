@@ -12,6 +12,11 @@ type WindowCounterPropsType = {
 }
 
 function WindowCounter(props: WindowCounterPropsType) {
+    // const checkIncValue = props.count >= props.maxValue || props.startValue >= props.maxValue || props.startValue <= 0
+    // const checkResetValue = props.count <= props.startValue || props.startValue >= props.maxValue || props.maxValue <= 0
+
+    const checkIncValue = props.startValue < 0 || props.startValue >= props.maxValue || props.count >= props.maxValue
+    const checkResetValue = props.maxValue <= 0 || props.count <= props.startValue
 
 
     return <div className={'wrapper'}>
@@ -21,12 +26,13 @@ function WindowCounter(props: WindowCounterPropsType) {
 
             <CleverButtons title={'Inc'}
                            incAndRes={props.incNumber}
-                           disabled={props.count === props.maxValue} startValue={props.count}
+                           disabled={checkIncValue}
+                           startValue={props.count}
                            maxValue={props.maxValue}
             />
             <CleverButtons title={'Reset'}
                            incAndRes={props.resNumber}
-                           disabled={props.count <= props.startValue}
+                           disabled={checkResetValue}
                            startValue={props.count}
                            maxValue={props.maxValue}
             />

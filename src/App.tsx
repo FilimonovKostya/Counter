@@ -4,8 +4,8 @@ import {Settings} from "./Components/Block-Settings/Settings";
 import WindowCounter from "./Components/WindowCounter/WindowCounter";
 
 function App() {
-    const [startValue, setStartValue] = useState(1) // значение инпута
-    const [maxValue, setMaxValue] = useState(3) // значение инпута
+    const [startValue, setStartValue] = useState(0) // значение инпута
+    const [maxValue, setMaxValue] = useState(1) // значение инпута
     const [count, setCount] = useState(startValue) // сохраняю стартовое значение инпута при нажатии set
 
 

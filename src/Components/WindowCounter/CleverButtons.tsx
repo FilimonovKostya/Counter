@@ -6,7 +6,7 @@ type CleverButtonsPropsType = {
     title:string
     startValue:number
     maxValue:number
-    disabled?:boolean
+    disabled:boolean
 }
 
 function CleverButtons(props: CleverButtonsPropsType) {
