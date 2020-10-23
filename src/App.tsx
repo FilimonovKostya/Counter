@@ -15,6 +15,8 @@ function App() {
 
     const settings = () => setCount(startValue)
 
+    console.log(count)
+
     return <div className={'app'}>
 
         <Settings setStartValue={setStartValue}
