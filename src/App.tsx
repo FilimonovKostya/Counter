@@ -1,9 +1,12 @@
 import React from 'react';
 import './App.css';
+import {BlockSettings} from "./components/BlockSettings";
+import {BlockWindow} from "./components/BlockWindow";
 
 function App() {
-    return <div>
-        <h1>test</h1>
+    return <div className={'App'}>
+        <BlockSettings/>
+        <BlockWindow/>
     </div>
 }
 
