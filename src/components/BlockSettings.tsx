@@ -5,11 +5,11 @@ import {CleverButtons} from "./CleverButtons";
 type BlockSettingsPropsType = {
     setInputStartValue: (value: number) => void
     setInputMaxValue: (value: number) => void
-    startValue:number
-    maxValue:number
-    set:() => void
-    disabled:boolean
-    setDisabled:(boolean: boolean) => void
+    startValue: number
+    maxValue: number
+    set: () => void
+    disabled: boolean
+    setDisabled: (boolean: boolean) => void
 }
 
 export function BlockSettings(props: BlockSettingsPropsType) {

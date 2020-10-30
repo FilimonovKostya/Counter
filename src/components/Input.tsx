@@ -5,13 +5,13 @@ type InputPropsType = {
     classNameInput: string
     classNameBlock: string
     inputValue: (value: number) => void
-    value:number
-    setDisabled:(boolean: boolean) => void
+    value: number
+    setDisabled: (boolean: boolean) => void
 }
 
 export function Input(props: InputPropsType) {
 
-    const onChangeHandler = (e:ChangeEvent<HTMLInputElement>) => {
+    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
         props.inputValue(+e.currentTarget.value)
         props.setDisabled(false)
     }

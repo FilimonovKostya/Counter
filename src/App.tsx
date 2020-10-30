@@ -9,17 +9,17 @@ function App() {
     const [inputMaxValue, setInputMaxValue] = React.useState(5)
     const [count, setCount] = React.useState(inputStartValue)
 
-    const [disabled,setDisabled] = React.useState(true)
+    const [disabled, setDisabled] = React.useState(true)
 
-    function inc(){
+    function inc() {
         setCount(count + 1)
     }
 
-    function res(){
+    function res() {
         setCount(inputStartValue)
     }
 
-    function set(){
+    function set() {
         setCount(inputStartValue)
         setDisabled(true)
     }
