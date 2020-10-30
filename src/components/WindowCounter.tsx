@@ -1,7 +1,10 @@
 import React from "react";
 
-export function WindowCounter() {
-    return <div className={'blockValues window'}>
-        12
-    </div>
+type WindowCounterPropsType = {
+    startValue:number
+    count:number
+}
+
+export function WindowCounter(props:WindowCounterPropsType) {
+    return <div className={'blockValues window'}>  {props.count}  </div>
 }
