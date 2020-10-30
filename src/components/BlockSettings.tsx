@@ -10,6 +10,7 @@ type BlockSettingsPropsType = {
     set: () => void
     disabled: boolean
     setDisabled: (boolean: boolean) => void
+    count:number
 }
 
 export function BlockSettings(props: BlockSettingsPropsType) {
@@ -36,7 +37,13 @@ export function BlockSettings(props: BlockSettingsPropsType) {
 
         <div className={'blockSettings'}>
 
-            <CleverButtons title={'Set'} settings={props.set} setDisabled={props.setDisabled} disabled={props.disabled}/>
+            <CleverButtons title={'Set'}
+                           settings={props.set}
+                           setDisabled={props.setDisabled}
+                           disabled={props.disabled}
+                           maxValue={props.maxValue}
+                           count={props.count}
+            />
 
         </div>
     </div>

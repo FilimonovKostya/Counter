@@ -12,7 +12,7 @@ function App() {
     const [disabled, setDisabled] = React.useState(true)
 
     function inc() {
-        count < inputMaxValue ? setCount(count + 1) : alert('error')
+        count < inputMaxValue && setCount(count + 1)
     }
 
     function res() {
@@ -24,6 +24,8 @@ function App() {
         setDisabled(true)
     }
 
+    console.log(count)
+
     return <div className={'App'}>
         <BlockSettings
             setInputStartValue={setInputStartValue}
@@ -33,11 +35,13 @@ function App() {
             set={set}
             disabled={disabled}
             setDisabled={setDisabled}
+            count={count}
         />
 
         <BlockWindow inc={inc}
                      res={res}
                      inputStartValue={inputStartValue}
+                     inputMaxValue={inputMaxValue}
                      count={count}
                      setDisabled={setDisabled}
                      disabled={!disabled}
