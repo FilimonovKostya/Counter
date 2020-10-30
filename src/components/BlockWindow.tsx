@@ -1,13 +1,18 @@
 import React from "react";
+import {CleverButtons} from "./CleverButtons";
+import {WindowCounter} from "./WindowCounter";
 
 export function BlockWindow() {
     return <div className={'wrapper'}>
-        <div className={'blockValues window'}>
-            12
-        </div>
+
+        <WindowCounter/>
+
         <div className={'blockSettings'}>
-            <button className={'buttons'}>Inc</button>
-            <button className={'buttons'}>Res</button>
+
+            <CleverButtons title={'Inc'}/>
+            <CleverButtons title={'Res'}/>
+
         </div>
     </div>
 }
+
