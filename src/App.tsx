@@ -1,40 +1,48 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './App.css';
-import {Settings} from "./Components/Block-Settings/Settings";
-import WindowCounter from "./Components/WindowCounter/WindowCounter";
+import {BlockSettings} from "./components/BlockSettings";
+import {BlockWindow} from "./components/BlockWindow";
 
 function App() {
-    const [startValue, setStartValue] = useState(0) // значение инпута
-    const [maxValue, setMaxValue] = useState(1) // значение инпута
-    const [count, setCount] = useState(startValue) // сохраняю стартовое значение инпута при нажатии set
 
+    const [inputStartValue, setInputStartValue] = React.useState(2)
+    const [inputMaxValue, setInputMaxValue] = React.useState(5)
+    const [count, setCount] = React.useState(inputStartValue)
 
-    const incNumber = () => count < maxValue && setCount(count + 1)
+    const [disabled,setDisabled] = React.useState(true)
 
-    const resNumber = () => setCount(startValue)
+    function inc(){
+        setCount(count + 1)
+    }
 
-    const settings = () => setCount(startValue)
+    function res(){
+        setCount(inputStartValue)
+    }
 
-    console.log(count)
+    function set(){
+        setCount(inputStartValue)
+        setDisabled(true)
+    }
 
-    return <div className={'app'}>
-
-        <Settings setStartValue={setStartValue}
-                  setMaxValue={setMaxValue}
-                  startValue={startValue}
-                  maxValue={maxValue}
-                  settings={settings}
+    return <div className={'App'}>
+        <BlockSettings
+            setInputStartValue={setInputStartValue}
+            setInputMaxValue={setInputMaxValue}
+            startValue={inputStartValue}
+            maxValue={inputMaxValue}
+            set={set}
+            disabled={disabled}
+            setDisabled={setDisabled}
         />
 
-        <WindowCounter count={count}
-                       startValue={startValue}
-                       maxValue={maxValue}
-                       incNumber={incNumber}
-                       resNumber={resNumber}
-
+        <BlockWindow inc={inc}
+                     res={res}
+                     inputStartValue={inputStartValue}
+                     count={count}
+                     setDisabled={setDisabled}
+                     disabled={!disabled}
         />
-
     </div>
 }
 
-export default App;
+export default App
