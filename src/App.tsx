@@ -12,7 +12,7 @@ function App() {
     const [disabled, setDisabled] = React.useState(true)
 
     function inc() {
-        setCount(count + 1)
+        count < inputMaxValue ? setCount(count + 1) : alert('error')
     }
 
     function res() {
