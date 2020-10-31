@@ -10,35 +10,31 @@ type BlockWindowPropsType = {
     count: number
     setDisabled: (boolean: boolean) => void
     disabled: boolean
+    maxValue:number
 }
 
 export function BlockWindow(props: BlockWindowPropsType) {
 
-
-
     return <div className={'wrapper'}>
 
-        <WindowCounter startValue={props.inputStartValue} count={props.count}/>
+        <WindowCounter startValue={props.inputStartValue}  count={props.count} maxValue={props.maxValue} disabled={props.disabled}/>
 
         <div className={'blockSettings'}>
 
             <CleverButtons title={'Inc'}
                            settings={props.inc}
                            setDisabled={props.setDisabled}
-                           disabled={ props.count >= props.inputMaxValue || props.disabled}
+                           disabled={props.count >= props.inputMaxValue || props.disabled}
                            count={props.count}
                            maxValue={props.inputMaxValue}
-
-
             />
+
             <CleverButtons title={'Res'}
                            settings={props.res}
                            setDisabled={props.setDisabled}
-                           disabled={props.count <= props.inputStartValue || props.disabled }
+                           disabled={props.count <= props.inputStartValue || props.disabled}
                            count={props.count}
                            maxValue={props.inputMaxValue}
-
-
             />
 
         </div>

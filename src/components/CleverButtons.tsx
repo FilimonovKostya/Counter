@@ -11,7 +11,6 @@ type CleverButtonsPropsType = {
 
 export function CleverButtons(props:CleverButtonsPropsType) {
 
-
-    return <button className={'buttons'} disabled={props.disabled}  onClick={props.settings}>{ props.title }</button>
+    return <button className={'buttons'} disabled={props.disabled  }  onClick={props.settings}>{ props.title }</button>
 
 }

@@ -33,12 +33,14 @@ body {
 }
 
 .window {
-  background-color: #7cd3f1;
-  font-size: 72px;
+  background-color: #32809b7a;
+  font-size: 60px;
   border: 2px solid #7cd3f1;
   display: flex;
   justify-content: center;
   align-items: center;
+
+
 }
 
 .inputValues {
@@ -102,4 +104,13 @@ input[type='number'] {
   top: 1px;
   left: 1px;
   opacity: .7;
+}
+
+.max{
+  color: #ff41c0;
+  font-size: 72px;
+}
+
+.start{
+
 }

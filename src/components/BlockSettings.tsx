@@ -10,10 +10,11 @@ type BlockSettingsPropsType = {
     set: () => void
     disabled: boolean
     setDisabled: (boolean: boolean) => void
-    count:number
+    count: number
 }
 
 export function BlockSettings(props: BlockSettingsPropsType) {
+
     return <div className={'wrapper'}>
         <div className={'blockValues settings'}>
 
@@ -21,16 +22,22 @@ export function BlockSettings(props: BlockSettingsPropsType) {
                    classNameInput={'inputStart'}
                    classNameBlock={'startValue'}
                    inputValue={props.setInputStartValue}
-                   value={props.startValue}
+                   startValue={props.startValue}
+                   maxValue={props.maxValue}
                    setDisabled={props.setDisabled}
+                   countValue={props.count}
+                   value={props.startValue}
             />
 
             <Input title={'Max Value'}
                    classNameInput={'inputMax'}
                    classNameBlock={'maxValue'}
                    inputValue={props.setInputMaxValue}
-                   value={props.maxValue}
+                   startValue={props.startValue}
+                   maxValue={props.maxValue}
+                   countValue={props.count}
                    setDisabled={props.setDisabled}
+                   value={props.maxValue}
             />
 
         </div>
@@ -40,7 +47,7 @@ export function BlockSettings(props: BlockSettingsPropsType) {
             <CleverButtons title={'Set'}
                            settings={props.set}
                            setDisabled={props.setDisabled}
-                           disabled={props.disabled}
+                           disabled={(props.startValue === props.maxValue || props.startValue > props.maxValue || props.startValue < 0 || props.maxValue < 0 )   ?  !props.disabled : props.disabled}
                            maxValue={props.maxValue}
                            count={props.count}
             />

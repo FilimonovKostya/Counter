@@ -3,9 +3,10 @@ import './App.css';
 import {BlockSettings} from "./components/BlockSettings";
 import {BlockWindow} from "./components/BlockWindow";
 
+
 function App() {
 
-    const [inputStartValue, setInputStartValue] = React.useState(2)
+    const [inputStartValue, setInputStartValue] = React.useState(0)
     const [inputMaxValue, setInputMaxValue] = React.useState(5)
     const [count, setCount] = React.useState(inputStartValue)
 
@@ -24,7 +25,9 @@ function App() {
         setDisabled(true)
     }
 
-    console.log(count)
+    console.log(inputStartValue + ' start Value ')
+    console.log(inputMaxValue + ' max Value ')
+
 
     return <div className={'App'}>
         <BlockSettings
@@ -45,6 +48,7 @@ function App() {
                      count={count}
                      setDisabled={setDisabled}
                      disabled={!disabled}
+                     maxValue={inputMaxValue}
         />
     </div>
 }
