@@ -1,20 +1,30 @@
 import React from "react";
 import {Input} from "./Input";
 import {CleverButtons} from "./CleverButtons";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {RootStoreType} from "../Redux/redux-store";
-import {initialStateType} from "../Redux/incOrResReducer";
+import {changedMaxValueAC, changedStartValueAC, initialStateType} from "../Redux/incOrResReducer";
 
 export function BlockSettings() {
 
     const startValue = useSelector<RootStoreType, initialStateType>(state => state.incrementOrReset)
     const maxValue = useSelector<RootStoreType, initialStateType>(state => state.incrementOrReset)
 
+    const action = useDispatch()
+
+    const onChangeHandlerStart = (inputValue:number) => {
+        action(changedStartValueAC(inputValue))
+    }
+
+    const onChangeHandlerMax = (inputValue:number) => {
+        action(changedMaxValueAC(inputValue))
+    }
+
     return <div className={'wrapper'}>
         <div className={'blockValues settings'}>
 
-            <Input title={'Start Value'} classNameInput={'inputStart'} classNameBlock={'startValue'} value={startValue.startValue}/>
-            <Input title={'Max Value'} classNameInput={'inputMax'} classNameBlock={'maxValue'} value={maxValue.maxValue}/>
+            <Input title={'Start Value'} classNameInput={'inputStart'} onChangeCallback={onChangeHandlerStart} classNameBlock={'startValue'} value={startValue.startValue}/>
+            <Input title={'Max Value'} classNameInput={'inputMax'} onChangeCallback={onChangeHandlerMax} classNameBlock={'maxValue'} value={maxValue.maxValue}/>
 
         </div>
 
