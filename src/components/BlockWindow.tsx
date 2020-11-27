@@ -14,17 +14,10 @@ export function BlockWindow() {
 
     const onClickHandlerRes = () => action(resetAC())
 
-    const [isDisable, setIsDisable] = React.useState(false)
-
 
     const countValue = useSelector<RootStoreType, number>(state => state.count.countValue)
     const maxValue = useSelector<RootStoreType, number>(state => state.count.maxValue)
-
-    if(countValue > maxValue) {
-        setIsDisable(true)
-    }
-
-
+    const startValue = useSelector<RootStoreType, number>(state => state.count.startValue)
 
     return <div className={'wrapper'}>
 
@@ -32,8 +25,8 @@ export function BlockWindow() {
 
         <div className={'blockSettings'}>
 
-            <CleverButtons title={'Inc'} disable={isDisable} onClickHandler={onClickHandlerInc}/>
-            <CleverButtons title={'Res'} disable={isDisable} onClickHandler={onClickHandlerRes}/>
+            <CleverButtons title={'Inc'} disable={countValue >= maxValue } onClickHandler={onClickHandlerInc}/>
+            <CleverButtons title={'Res'} disable={countValue <= startValue } onClickHandler={onClickHandlerRes}/>
 
         </div>
     </div>

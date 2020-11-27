@@ -25,7 +25,6 @@ export const countReducer = (state = initialState, action: ActionType): initialS
             return {
                 ...state,
                 countValue: state.countValue + 1,
-
             }
         case "RESET-VALUE":
             return {
