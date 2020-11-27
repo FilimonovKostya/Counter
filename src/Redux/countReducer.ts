@@ -1,11 +1,13 @@
 export type initialStateType = {
     startValue: number
     maxValue: number
+    countValue:number
 }
 
 const initialState: initialStateType = {
-    startValue: 2,
-    maxValue: 10
+    startValue: 1,
+    maxValue: 5,
+    countValue: 1
 }
 
 type ActionType =
@@ -14,17 +16,19 @@ type ActionType =
     | ReturnType<typeof changedStartValueAC>
     | ReturnType<typeof changedMaxValueAC>
 
-export const incOrResReducer = (state = initialState, action: ActionType): initialStateType => {
+export const countReducer = (state= initialState, action: ActionType): initialStateType => {
+    debugger
     switch (action.type) {
-        case "INCREMENT":
+        case "INCREMENT-VALUE":
             return {
                 ...state,
-                startValue: state.startValue + 1
+                countValue:state.startValue + 1,
+
             }
-        case "DECREMENT":
+        case "RESET-VALUE":
             return {
                 ...state,
-                startValue: state.startValue - 1
+                countValue: state.startValue
             }
         case "CHANGE-START-VALUE":
             return {
@@ -41,12 +45,13 @@ export const incOrResReducer = (state = initialState, action: ActionType): initi
     }
 }
 
+
 export const incrementAC = () => {
-    return {type: 'INCREMENT'} as const
+    return {type: 'INCREMENT-VALUE'} as const
 }
 
 export const resetAC = () => {
-    return {type: 'DECREMENT'} as const
+    return {type: 'RESET-VALUE'} as const
 }
 
 export const changedStartValueAC = (startValue: number) => {

@@ -1,9 +1,9 @@
 import { combineReducers, createStore } from "redux";
-import {incOrResReducer} from "./incOrResReducer";
+import {countReducer} from "./countReducer";
 
 
 const rootReducer = combineReducers({
-    incrementOrReset:incOrResReducer,
+    count:countReducer,
 })
 
 export const store = createStore(rootReducer)

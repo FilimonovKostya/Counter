@@ -5,6 +5,7 @@ import {BlockWindow} from "./components/BlockWindow";
 
 
 function App() {
+
     return <div className={'App'}>
         <BlockSettings/>
         <BlockWindow />
