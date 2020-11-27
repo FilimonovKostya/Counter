@@ -15,14 +15,15 @@ type ActionType =
     | ReturnType<typeof resetAC>
     | ReturnType<typeof changedStartValueAC>
     | ReturnType<typeof changedMaxValueAC>
+    | ReturnType<typeof setValuesAC>
 
 export const countReducer = (state= initialState, action: ActionType): initialStateType => {
-    debugger
+
     switch (action.type) {
         case "INCREMENT-VALUE":
             return {
                 ...state,
-                countValue:state.startValue + 1,
+                countValue:state.countValue + 1,
 
             }
         case "RESET-VALUE":
@@ -39,6 +40,12 @@ export const countReducer = (state= initialState, action: ActionType): initialSt
             return {
                 ...state,
                 maxValue: action.maxValue
+            }
+        case "SET-VALUES":
+            return {
+                ...state,
+                countValue: state.startValue,
+                maxValue: state.maxValue
             }
         default:
             return state
@@ -61,3 +68,8 @@ export const changedStartValueAC = (startValue: number) => {
 export const changedMaxValueAC = (maxValue: number) => {
     return {type: 'CHANGE-MAX-VALUE', maxValue} as const
 }
+
+export const setValuesAC = () =>{
+    return {type: 'SET-VALUES'} as const
+}
+

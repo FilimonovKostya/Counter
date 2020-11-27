@@ -3,12 +3,14 @@ import {Input} from "./Input";
 import {CleverButtons} from "./CleverButtons";
 import {useDispatch, useSelector} from "react-redux";
 import {RootStoreType} from "../Redux/redux-store";
-import {changedMaxValueAC, changedStartValueAC, initialStateType} from "../Redux/countReducer";
+import {changedMaxValueAC, changedStartValueAC, initialStateType, setValuesAC} from "../Redux/countReducer";
 
 export function BlockSettings() {
 
     const startValue = useSelector<RootStoreType, initialStateType>(state => state.count)
     const maxValue = useSelector<RootStoreType, initialStateType>(state => state.count)
+
+
 
     const action = useDispatch()
 
@@ -18,6 +20,10 @@ export function BlockSettings() {
 
     const onChangeHandlerMax = (inputValue: number) => {
         action(changedMaxValueAC(inputValue))
+    }
+
+    const setCallback = () => {
+        action(setValuesAC())
     }
 
     return <div className={'wrapper'}>
@@ -39,7 +45,7 @@ export function BlockSettings() {
 
         <div className={'blockSettings'}>
 
-            <CleverButtons title={'Set'} onClickHandler={() => {}}/>
+            <CleverButtons title={'Set'} onClickHandler={setCallback}/>
 
         </div>
     </div>
