@@ -3,13 +3,12 @@ import {Input} from "./Input";
 import {CleverButtons} from "./CleverButtons";
 import {useDispatch, useSelector} from "react-redux";
 import {RootStoreType} from "../Redux/redux-store";
-import {changedMaxValueAC, changedStartValueAC, initialStateType, setValuesAC} from "../Redux/countReducer";
+import {changedMaxValueAC, changedStartValueAC, setValuesAC} from "../Redux/countReducer";
 
 export function BlockSettings() {
 
-    const startValue = useSelector<RootStoreType, initialStateType>(state => state.count)
-    const maxValue = useSelector<RootStoreType, initialStateType>(state => state.count)
-
+    const startValue = useSelector<RootStoreType, number>(state => state.count.startValue)
+    const maxValue = useSelector<RootStoreType, number>(state => state.count.maxValue)
 
 
     const action = useDispatch()
@@ -33,19 +32,21 @@ export function BlockSettings() {
                    classNameInput={'inputStart'}
                    onChangeCallback={onChangeHandlerStart}
                    classNameBlock={'startValue'}
-                   value={startValue.startValue}/>
+                   value={startValue}/>
 
             <Input title={'Max Value'}
                    classNameInput={'inputMax'}
                    onChangeCallback={onChangeHandlerMax}
                    classNameBlock={'maxValue'}
-                   value={maxValue.maxValue}/>
+                   value={maxValue}/>
 
         </div>
 
         <div className={'blockSettings'}>
 
-            <CleverButtons title={'Set'} onClickHandler={setCallback}/>
+            <CleverButtons title={'Set'}
+                           disable={startValue === maxValue || startValue > maxValue || startValue < 0 || maxValue <= 0}
+                           onClickHandler={setCallback}/>
 
         </div>
     </div>

@@ -1,21 +1,30 @@
 import React from "react";
 import {CleverButtons} from "./CleverButtons";
 import {WindowCounter} from "./WindowCounter";
-import {useDispatch} from "react-redux";
-import { incrementAC, resetAC} from "../Redux/countReducer";
+import {useDispatch, useSelector} from "react-redux";
+import {incrementAC, resetAC} from "../Redux/countReducer";
+import {RootStoreType} from "../Redux/redux-store";
 
 
 export function BlockWindow() {
 
     const action = useDispatch()
 
-    const onClickHandlerInc = () => {
-        action(incrementAC())
+    const onClickHandlerInc = () => action(incrementAC())
+
+    const onClickHandlerRes = () => action(resetAC())
+
+    const [isDisable, setIsDisable] = React.useState(false)
+
+
+    const countValue = useSelector<RootStoreType, number>(state => state.count.countValue)
+    const maxValue = useSelector<RootStoreType, number>(state => state.count.maxValue)
+
+    if(countValue > maxValue) {
+        setIsDisable(true)
     }
 
-    const onClickHandlerRes = () => {
-        action(resetAC())
-    }
+
 
     return <div className={'wrapper'}>
 
@@ -23,8 +32,8 @@ export function BlockWindow() {
 
         <div className={'blockSettings'}>
 
-            <CleverButtons title={'Inc'} onClickHandler={onClickHandlerInc}/>
-            <CleverButtons title={'Res'} onClickHandler={onClickHandlerRes}/>
+            <CleverButtons title={'Inc'} disable={isDisable} onClickHandler={onClickHandlerInc}/>
+            <CleverButtons title={'Res'} disable={isDisable} onClickHandler={onClickHandlerRes}/>
 
         </div>
     </div>

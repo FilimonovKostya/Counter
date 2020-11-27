@@ -1,7 +1,7 @@
-import {changedMaxValueAC, changedStartValueAC, countReducer, incrementAC, initialStateType, resetAC} from "./countReducer";
+import {changedMaxValueAC, changedStartValueAC, countReducer, incrementAC, initialStateType, resetAC, setValuesAC} from "./countReducer";
 
 
-let initialState: initialStateType = Object()
+let initialState: initialStateType
 
 beforeEach(()=>{
 
@@ -57,5 +57,14 @@ test('Changed input maxValue', () => {
 
     expect(resultState.startValue).toBe(2)
     expect(resultState.maxValue).toBe(30)
+    expect(resultState.countValue).toBe(2)
+})
+
+test('Return startValue on press button SET', () => {
+
+    const resultState = countReducer(initialState, setValuesAC( ))
+
+    expect(resultState.startValue).toBe(2)
+    expect(resultState.maxValue).toBe(5)
     expect(resultState.countValue).toBe(2)
 })
