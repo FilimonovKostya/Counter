@@ -5,7 +5,11 @@ import {useDispatch, useSelector} from "react-redux";
 import {RootStoreType} from "../Redux/redux-store";
 import {changedMaxValueAC, changedStartValueAC, setValuesAC} from "../Redux/countReducer";
 
-export function BlockSettings() {
+type BlockSettingsPropsType = {
+    setDisabled: (boolean: boolean) => void
+}
+
+export function BlockSettings(props: BlockSettingsPropsType) {
 
     const startValue = useSelector<RootStoreType, number>(state => state.count.startValue)
     const maxValue = useSelector<RootStoreType, number>(state => state.count.maxValue)
@@ -23,6 +27,7 @@ export function BlockSettings() {
 
     const setCallback = () => {
         action(setValuesAC())
+        props.setDisabled(false)
     }
 
     return <div className={'wrapper'}>
@@ -32,13 +37,17 @@ export function BlockSettings() {
                    classNameInput={'inputStart'}
                    onChangeCallback={onChangeHandlerStart}
                    classNameBlock={'startValue'}
-                   value={startValue}/>
+                   value={startValue}
+                   setDisabled={props.setDisabled}
+            />
 
             <Input title={'Max Value'}
                    classNameInput={'inputMax'}
                    onChangeCallback={onChangeHandlerMax}
                    classNameBlock={'maxValue'}
-                   value={maxValue}/>
+                   value={maxValue}
+                   setDisabled={props.setDisabled}
+            />
 
         </div>
 

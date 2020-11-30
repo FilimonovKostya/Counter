@@ -65,6 +65,6 @@ test('Return startValue on press button SET', () => {
     const resultState = countReducer(initialState, setValuesAC( ))
 
     expect(resultState.startValue).toBe(2)
-    expect(resultState.maxValue).toBe(5)
     expect(resultState.countValue).toBe(2)
+    expect(resultState.maxValue).toBe(5)
 })

@@ -6,9 +6,11 @@ import {BlockWindow} from "./components/BlockWindow";
 
 function App() {
 
+    const [disabled,setDisabled] = React.useState(false)
+
     return <div className={'App'}>
-        <BlockSettings/>
-        <BlockWindow />
+        <BlockSettings setDisabled={setDisabled}/>
+        <BlockWindow disabled={disabled}/>
     </div>
 }
 
