@@ -19,7 +19,7 @@ export const BlockWindow = React.memo((props:BlockWindowPropsType) => {
 
     return <div className={'wrapper'}>
 
-        <WindowCounter countValue={props.countValue} maxValue={props.maxValue}/>
+        <WindowCounter startValue={props.startValue} countValue={props.countValue} maxValue={props.maxValue}/>
 
         <div className={'blockSettings'}>
 
