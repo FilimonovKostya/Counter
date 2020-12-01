@@ -1,34 +1,29 @@
 import React from "react";
 import {Input} from "./Input";
 import {CleverButtons} from "./CleverButtons";
-import {useDispatch, useSelector} from "react-redux";
-import {RootStoreType} from "../Redux/redux-store";
+import {useDispatch} from "react-redux";
 import {changedMaxValueAC, changedStartValueAC, setValuesAC} from "../Redux/countReducer";
 
 type BlockSettingsPropsType = {
     setDisabled: (boolean: boolean) => void
+    startValue: number
+    maxValue:number
 }
 
-export function BlockSettings(props: BlockSettingsPropsType) {
-
-    const startValue = useSelector<RootStoreType, number>(state => state.count.startValue)
-    const maxValue = useSelector<RootStoreType, number>(state => state.count.maxValue)
-
+export const BlockSettings = React.memo((props: BlockSettingsPropsType) => {
 
     const action = useDispatch()
 
-    const onChangeHandlerStart = (inputValue: number) => {
-        action(changedStartValueAC(inputValue))
-    }
+    const onChangeHandlerStart = (inputValue: number) => action(changedStartValueAC(inputValue))
 
-    const onChangeHandlerMax = (inputValue: number) => {
-        action(changedMaxValueAC(inputValue))
-    }
+    const onChangeHandlerMax = (inputValue: number) => action(changedMaxValueAC(inputValue))
 
     const setCallback = () => {
         action(setValuesAC())
         props.setDisabled(false)
     }
+
+    const incorrectValue = 'Incorrect Value'
 
     return <div className={'wrapper'}>
         <div className={'blockValues settings'}>
@@ -37,16 +32,18 @@ export function BlockSettings(props: BlockSettingsPropsType) {
                    classNameInput={'inputStart'}
                    onChangeCallback={onChangeHandlerStart}
                    classNameBlock={'startValue'}
-                   value={startValue}
+                   value={props.startValue}
                    setDisabled={props.setDisabled}
+                   checkCondition={props.startValue > props.maxValue ? incorrectValue : ''}
             />
 
             <Input title={'Max Value'}
                    classNameInput={'inputMax'}
                    onChangeCallback={onChangeHandlerMax}
                    classNameBlock={'maxValue'}
-                   value={maxValue}
+                   value={props.maxValue}
                    setDisabled={props.setDisabled}
+                   checkCondition={props.maxValue === props.startValue ? incorrectValue : ''}
             />
 
         </div>
@@ -54,11 +51,14 @@ export function BlockSettings(props: BlockSettingsPropsType) {
         <div className={'blockSettings'}>
 
             <CleverButtons title={'Set'}
-                           disable={startValue === maxValue || startValue > maxValue || startValue < 0 || maxValue <= 0}
+                           disable={props.startValue === props.maxValue
+                           || props.startValue > props.maxValue
+                           || props.startValue < 0
+                           || props.maxValue < 0}
                            onClickHandler={setCallback}/>
 
         </div>
     </div>
-}
+})
 
 

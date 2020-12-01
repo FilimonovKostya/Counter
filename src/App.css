@@ -58,6 +58,11 @@ body {
   color: #ff41c0;
 }
 
+.incorrectValue{
+  box-shadow: 0 0 8px 3px #d90120;
+  background-color: #ff5f83;
+}
+
 input[type='number'] {
   outline: none;
   border: none;

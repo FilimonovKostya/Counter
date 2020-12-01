@@ -1,14 +1,14 @@
 import React from "react";
-import {useSelector} from "react-redux";
-import {RootStoreType} from "../Redux/redux-store";
 
 
-
-
-export function WindowCounter() {
-    const error= 'error'
-    const countValue = useSelector<RootStoreType, number>(state => state.count.countValue)
-    return <div className={'blockValues window'}>
-        {countValue < 2 ? error : countValue}
-    </div>
+type WindowCounterPropsType = {
+    countValue:number
+    maxValue:number
 }
+
+export const WindowCounter = React.memo( (props:WindowCounterPropsType) => {
+    const error= 'error'
+    return <div className={'blockValues window'}>
+        <span className={props.countValue < props.maxValue ? 'startValue' : 'maxValue'}>{props.countValue}</span>
+    </div>
+})

@@ -8,9 +8,10 @@ type InputPropsType = {
     value: number
     onChangeCallback: (inputValue: number) => void
     setDisabled:(boolean: boolean) => void
+    checkCondition:string
 }
 
-export function Input(props: InputPropsType) {
+export const Input = React.memo( (props: InputPropsType) => {
 
     const onChangeHandler = (e:ChangeEvent<HTMLInputElement>) => {
         props.setDisabled(true)
@@ -21,6 +22,6 @@ export function Input(props: InputPropsType) {
 
     return <div className={'inputValues'}>
         <div className={props.classNameBlock}> {props.title} </div>
-        <input type="number" value={props.value} onChange={onChangeHandler} className={props.classNameInput}/>
+        <input type="number" value={props.value} onChange={onChangeHandler} className={!props.checkCondition ? props.classNameInput : 'incorrectValue'}/>
     </div>
-}
+})
