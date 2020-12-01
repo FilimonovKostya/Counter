@@ -7,7 +7,7 @@ import {changedMaxValueAC, changedStartValueAC, setValuesAC} from "../Redux/coun
 type BlockSettingsPropsType = {
     setDisabled: (boolean: boolean) => void
     startValue: number
-    maxValue:number
+    maxValue: number
 }
 
 export const BlockSettings = React.memo((props: BlockSettingsPropsType) => {
@@ -24,6 +24,7 @@ export const BlockSettings = React.memo((props: BlockSettingsPropsType) => {
     }
 
     const incorrectValue = 'Incorrect Value'
+    const condition = props.startValue < 0 || props.startValue > props.maxValue || props.startValue === props.maxValue ? incorrectValue : ''
 
     return <div className={'wrapper'}>
         <div className={'blockValues settings'}>
@@ -34,7 +35,7 @@ export const BlockSettings = React.memo((props: BlockSettingsPropsType) => {
                    classNameBlock={'startValue'}
                    value={props.startValue}
                    setDisabled={props.setDisabled}
-                   checkCondition={props.startValue > props.maxValue ? incorrectValue : ''}
+                   checkCondition={condition}
             />
 
             <Input title={'Max Value'}
@@ -43,7 +44,7 @@ export const BlockSettings = React.memo((props: BlockSettingsPropsType) => {
                    classNameBlock={'maxValue'}
                    value={props.maxValue}
                    setDisabled={props.setDisabled}
-                   checkCondition={props.maxValue === props.startValue ? incorrectValue : ''}
+                   checkCondition={condition}
             />
 
         </div>

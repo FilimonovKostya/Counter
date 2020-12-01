@@ -22,6 +22,6 @@ export const Input = React.memo( (props: InputPropsType) => {
 
     return <div className={'inputValues'}>
         <div className={props.classNameBlock}> {props.title} </div>
-        <input type="number" value={props.value} onChange={onChangeHandler} className={!props.checkCondition ? props.classNameInput : 'incorrectValue'}/>
+        <input type="number" value={props.value} className={props.checkCondition ? 'incorrectValue' : props.classNameInput} onChange={onChangeHandler}/>
     </div>
 })
