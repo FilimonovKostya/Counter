@@ -5,7 +5,7 @@ export type initialStateType = {
 }
 
 const initialState: initialStateType = {
-    startValue: 2 ,
+    startValue: 1 ,
     maxValue: 5,
     countValue: 1,
 }
