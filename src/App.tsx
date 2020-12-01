@@ -14,6 +14,7 @@ function App() {
     const maxValue = useSelector<RootStoreType, number>(state => state.count.maxValue)
     const startValue = useSelector<RootStoreType, number>(state => state.count.startValue)
 
+
     return <div className={'App'}>
         <BlockSettings setDisabled={setDisabled} startValue={startValue} maxValue={maxValue}/>
         <BlockWindow disabled={disabled} startValue={startValue} maxValue={maxValue} countValue={countValue}/>

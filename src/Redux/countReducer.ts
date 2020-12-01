@@ -5,7 +5,7 @@ export type initialStateType = {
 }
 
 const initialState: initialStateType = {
-    startValue: 2 || localStorage.getItem('start'),
+    startValue: 2 ,
     maxValue: 5,
     countValue: 1,
 }
