@@ -7,7 +7,7 @@ import {RootStoreType} from "./Redux/redux-store";
 
 
 function App() {
-
+    console.log('test')
     const [disabled,setDisabled] = React.useState(false)
 
     const countValue = useSelector<RootStoreType, number>(state => state.count.countValue)
