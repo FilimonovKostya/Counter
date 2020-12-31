@@ -20,6 +20,8 @@ export const BlockSettings = React.memo((props: BlockSettingsPropsType) => {
 
     const setCallback = () => {
         action(setValuesAC())
+        localStorage.setItem('startValue', props.startValue.toString())
+        localStorage.setItem('maxValue', props.maxValue.toString())
         props.setDisabled(false)
     }
 

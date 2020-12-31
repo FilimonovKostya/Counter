@@ -5,7 +5,7 @@ export type initialStateType = {
 }
 
 const initialState: initialStateType = {
-    startValue: 1 ,
+    startValue: 1,
     maxValue: 5,
     countValue: 1,
 }
@@ -16,6 +16,8 @@ type ActionType =
     | ReturnType<typeof changedStartValueAC>
     | ReturnType<typeof changedMaxValueAC>
     | ReturnType<typeof setValuesAC>
+    | ReturnType<typeof saveStartValue>
+    | ReturnType<typeof saveMaxValue>
 
 
 export const countReducer = (state = initialState, action: ActionType): initialStateType => {
@@ -47,6 +49,18 @@ export const countReducer = (state = initialState, action: ActionType): initialS
                 countValue: state.startValue,
                 maxValue: state.maxValue
             }
+        case "SAVE-START-VALUE":
+            return {
+                ...state,
+                startValue: action.startValue
+            }
+        case "SAVE-MAX-VALUE": {
+            return {
+                ...state,
+                maxValue: action.maxValue
+            }
+        }
+
 
         default:
             return state
@@ -74,3 +88,11 @@ export const setValuesAC = () => {
     return {type: 'SET-VALUES'} as const
 }
 
+export const saveStartValue = (startValue: number) => {
+    return {type: 'SAVE-START-VALUE', startValue} as const
+}
+
+
+export const saveMaxValue = (maxValue: number) => {
+    return {type: 'SAVE-MAX-VALUE', maxValue} as const
+}
